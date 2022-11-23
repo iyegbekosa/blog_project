@@ -1,13 +1,16 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-<div class="centerstage">
+<div class="container-fluid">
 {% for post in post_list %}
-<divclass="post">
-    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-    <div class="date">
-        <p> Published on: {{ post.published_date|date:"D M Y"}}</p>
+    <div class="d-flex justify-content-center mx-auto">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Published on: {{ post.published_date|date:"D M Y"}}</h6>
+            <a href="{% url 'post_detail' pk=post.pk %}">Read Blog</a>
+            <a type="button" href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary">Comments: {{ post.approve_comments.count }}</a>
+        </div>
     </div>
-    <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
 </div>
 {% endfor %}
 </div>
