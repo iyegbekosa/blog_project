@@ -69,13 +69,13 @@
           </div>
         </div>
       </div>
-      <a class="btn btn-primary btn-comment" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
       <div class="container">
     </div>
     {% endif %}
     {% empty %}
       <p>No comments posted.</p>
   {% endfor %}
+  <div><a class="btn btn-primary btn-comment" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a></div>
   </div>
 </div>
 
